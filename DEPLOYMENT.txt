@@ -1,0 +1,22 @@
+WordPress-ready DSALA conference app
+
+Files in this folder:
+- index.html
+- lmu-shield.svg
+- mellon-logo.png
+
+Recommended WordPress hosting setup:
+1. Upload this entire folder to your site's web root with a clean folder name.
+   Example folder name: dsala-conference-app
+2. The app will then load at:
+   https://yourdomain.com/dsala-conference-app/
+3. In WordPress, add a menu link, button, or page link that points to that URL.
+
+Recommended approach:
+- Keep this app as a standalone folder on the same server as WordPress.
+- Do not paste the HTML into the WordPress block editor.
+- Do not rely on the active WordPress theme to style the app.
+
+If you update the app later:
+- Replace index.html with the newer version.
+- Replace any changed asset files in the same folder.
