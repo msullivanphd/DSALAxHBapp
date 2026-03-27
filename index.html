@@ -131,6 +131,7 @@
   .nav-tab:focus-visible,
   .expand-btn:focus-visible,
   .legend-item:focus-visible,
+  .map-link-btn:focus-visible,
   .bnav-item:focus-visible,
   .font-btn:focus-visible {
     outline: 2px solid var(--blue);
@@ -250,6 +251,60 @@
   .legend-dot { width: 14px; height: 14px; border-radius: 4px; flex-shrink: 0; }
   .legend-name { font-size: calc(13px * var(--font-scale)); font-weight: 500; color: var(--text); flex: 1; }
   .legend-note { font-size: calc(11px * var(--font-scale)); color: var(--text-muted); }
+  .map-directory {
+    background: var(--card);
+    border-radius: 13px;
+    border: 0.5px solid var(--border);
+    padding: 12px;
+    margin-bottom: 12px;
+  }
+  .map-directory h3 {
+    font-size: calc(12px * var(--font-scale));
+    font-weight: 600;
+    color: var(--crimson);
+    margin-bottom: 8px;
+  }
+  .map-directory p {
+    font-size: calc(11px * var(--font-scale));
+    color: var(--text-muted);
+    line-height: 1.55;
+    margin-bottom: 10px;
+  }
+  .map-link-list {
+    display: grid;
+    gap: 7px;
+  }
+  .map-link-btn {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 10px 12px;
+    background: var(--bg);
+    border: 0.5px solid var(--border);
+    border-radius: 10px;
+    text-align: left;
+    cursor: pointer;
+  }
+  .map-link-title {
+    font-size: calc(12px * var(--font-scale));
+    font-weight: 600;
+    color: var(--text);
+  }
+  .map-link-detail {
+    font-size: calc(11px * var(--font-scale));
+    color: var(--text-muted);
+    line-height: 1.45;
+    margin-top: 2px;
+  }
+  .map-link-btn::after {
+    content: "View";
+    font-size: calc(10px * var(--font-scale));
+    color: var(--crimson);
+    font-weight: 600;
+    flex-shrink: 0;
+  }
 
   /* Info */
   .info-wrap { padding: 14px; }
@@ -458,7 +513,7 @@
             <div class="s-meta">Roski</div>
             <button class="expand-btn" type="button" onclick="tog(this)">Show presenters ▾</button>
             <div class="presenters-list">
-              <div class="presenter-item"><strong>Wendy Marroquin, Pau Abustan, Mark Velasco, and Jack Vitello</strong> — Disability Justice Praxis through Youth Outreach</div>
+              <div class="presenter-item"><strong>Wendy Marroquin, Pau Abustan, Jo Lacangan, Mark Velasco, and Jack Vitello</strong> — Disability Justice Praxis through Youth Outreach</div>
             </div>
           </div>
 
@@ -753,33 +808,93 @@
               </g>
             </svg>
           </div>
+          <div class="map-directory" aria-labelledby="mapDirectoryHeading">
+            <h3 id="mapDirectoryHeading">Accessible room directory</h3>
+            <p>Use these buttons if you prefer a text list instead of the visual map. Each item opens the same location details announced in the map tooltip.</p>
+            <div class="map-link-list">
+              <button class="map-link-btn" type="button" data-name="Roski Dining Hall" data-detail="Opening · 1c · 2d · Lunch · Keynote · Posters · 3c · 4c · Closing">
+                <span>
+                  <span class="map-link-title">Roski Dining Hall</span>
+                  <span class="map-link-detail">Opening remarks, lunch, keynote, posters, and closing</span>
+                </span>
+              </button>
+              <button class="map-link-btn" type="button" data-name="Room 1859" data-detail="Sessions 1a · 2c · 3a · 4a">
+                <span>
+                  <span class="map-link-title">Room 1859</span>
+                  <span class="map-link-detail">Sessions 1a, 2c, 3a, and 4a</span>
+                </span>
+              </button>
+              <button class="map-link-btn" type="button" data-name="Room 1866" data-detail="Sessions 1b · 2a · 3b · 4b">
+                <span>
+                  <span class="map-link-title">Room 1866</span>
+                  <span class="map-link-detail">Sessions 1b, 2a, 3b, and 4b</span>
+                </span>
+              </button>
+              <button class="map-link-btn" type="button" data-name="Room 1858" data-detail="Sessions 1e · 2b · 3e">
+                <span>
+                  <span class="map-link-title">Room 1858</span>
+                  <span class="map-link-detail">Sessions 1e, 2b, and 3e</span>
+                </span>
+              </button>
+              <button class="map-link-btn" type="button" data-name="Room 1857" data-detail="Sessions 1d · 2e · 3d · 4d">
+                <span>
+                  <span class="map-link-title">Room 1857</span>
+                  <span class="map-link-detail">Sessions 1d, 2e, 3d, and 4d</span>
+                </span>
+              </button>
+              <button class="map-link-btn" type="button" data-name="University Hall 3999" data-detail="Abalytic Demo during the 10:45 to 11:45 AM session">
+                <span>
+                  <span class="map-link-title">University Hall 3999</span>
+                  <span class="map-link-detail">Tech demo during Session 2</span>
+                </span>
+              </button>
+              <button class="map-link-btn" type="button" data-name="Accessible restrooms" data-detail="Next to Roski Dining Hall">
+                <span>
+                  <span class="map-link-title">Accessible restrooms</span>
+                  <span class="map-link-detail">Next to Roski</span>
+                </span>
+              </button>
+              <button class="map-link-btn" type="button" data-name="Gender neutral restrooms" data-detail="Far end of University Hall opposite Roski, near the 1000 Auditorium area">
+                <span>
+                  <span class="map-link-title">Gender neutral restrooms</span>
+                  <span class="map-link-detail">Far end of University Hall opposite Roski</span>
+                </span>
+              </button>
+              <button class="map-link-btn" type="button" data-name="Accessible lift" data-detail="Mid-corridor on the east side">
+                <span>
+                  <span class="map-link-title">Accessible lift</span>
+                  <span class="map-link-detail">Mid-corridor, east side</span>
+                </span>
+              </button>
+            </div>
+          </div>
           <div class="legend">
-            <button class="legend-item" type="button">
+            <button class="legend-item" type="button" data-name="Roski Dining Hall" data-detail="Opening, keynote, posters, closing">
               <span class="legend-dot" style="background:#f5e0e4;border:1.5px solid #AB0C2F;"></span>
               <span class="legend-name">Roski Dining Hall</span>
               <span class="legend-note">Opening, keynote, posters, closing</span>
             </button>
-            <button class="legend-item" type="button">
+            <button class="legend-item" type="button" data-name="Room 1859" data-detail="Sessions 1a, 2c, 3a, 4a">
               <span class="legend-dot" style="background:#f5e0e4;border:1.5px solid #AB0C2F;"></span>
               <span class="legend-name">Room 1859</span>
               <span class="legend-note">Sessions 1a, 2c, 3a, 4a</span>
             </button>
-            <button class="legend-item" type="button">
+            <button class="legend-item" type="button" data-name="Room 1866" data-detail="Sessions 1b, 2a, 3b, 4b">
               <span class="legend-dot" style="background:#f5e0e4;border:1.5px solid #AB0C2F;"></span>
               <span class="legend-name">Room 1866</span>
               <span class="legend-note">Sessions 1b, 2a, 3b, 4b</span>
             </button>
-            <button class="legend-item" type="button">
+            <button class="legend-item" type="button" data-name="Room 1858" data-detail="Sessions 1e, 2b, 3e">
               <span class="legend-dot" style="background:#f5e0e4;border:1.5px solid #AB0C2F;"></span>
               <span class="legend-name">Room 1858</span>
               <span class="legend-note">Sessions 1e, 2b, 3e</span>
             </button>
-            <button class="legend-item" type="button">
+            <button class="legend-item" type="button" data-name="Room 1857" data-detail="Sessions 1d, 2e, 3d, 4d">
               <span class="legend-dot" style="background:#f5e0e4;border:1.5px solid #AB0C2F;"></span>
               <span class="legend-name">Room 1857</span>
               <span class="legend-note">Sessions 1d, 2e, 3d, 4d</span>
             </button>
-            <button class="legend-item" type="button">
+            <button class="legend-item" type="button" data-name="Accessible restrooms" data-detail="Next to Roski">
               <span class="legend-dot" style="background:#e8f4e8;border:1.5px solid #2e6b2e;"></span>
               <span class="legend-name">Accessible restrooms</span>
               <span class="legend-note">Next to Roski</span>
@@ -795,16 +910,9 @@
         <div class="info-wrap">
 
           <div class="info-card">
-            <h3>Conference at a glance</h3>
-            <div class="info-row">DSALA x Habitable Worlds</div>
-            <div class="info-row"><span>All times</span> PST</div>
+            <h3>Abstracts</h3>
+            <div class="info-row">View the conference abstracts: <a href="https://lmu.box.com/s/wfgsp4zgcghpa1zm6cp80pymkijthr2p" target="_blank" rel="noopener noreferrer">Open the abstracts document</a></div>
             <div class="info-row"><span>Email</span> <a href="mailto:DisabilityStudies@LMU.edu">DisabilityStudies@LMU.edu</a></div>
-            <div class="theme-pills">
-              <span class="theme-pill">Advocacy &amp; Agency</span>
-              <span class="theme-pill">Lived Experiences</span>
-              <span class="theme-pill">Health &amp; Equity</span>
-              <span class="theme-pill">AI &amp; Disability Ethics</span>
-            </div>
           </div>
 
           <div class="info-card">
@@ -844,6 +952,7 @@
             <div class="info-row">The Center for Faculty Development</div>
             <div class="info-row">BCLA Disability Studies &amp; Women's and Gender Studies</div>
             <div class="info-row">The Coelho Center for Disability Law, Policy, and Innovation</div>
+            <div class="info-row">Special thanks to the students of WGST 3900</div>
           </div>
 
           <div class="mellon-logo-wrap">
@@ -963,8 +1072,12 @@ function showTip(evt, name, sessions) {
   const tip = document.getElementById('tip');
   const wrap = document.getElementById('mapWrap');
   const rect = wrap.getBoundingClientRect();
-  const x = evt.clientX - rect.left;
-  const y = evt.clientY - rect.top;
+  const fallbackX = rect.left + rect.width / 2;
+  const fallbackY = rect.top + 60;
+  const clientX = evt && typeof evt.clientX === 'number' ? evt.clientX : fallbackX;
+  const clientY = evt && typeof evt.clientY === 'number' ? evt.clientY : fallbackY;
+  const x = clientX - rect.left;
+  const y = clientY - rect.top;
   tip.innerHTML = '<strong>' + name + '</strong><br>' + sessions;
   tip.style.left = Math.min(x + 12, rect.width - 150) + 'px';
   tip.style.top = Math.max(y - 10, 10) + 'px';
@@ -1012,17 +1125,25 @@ function initAccessibility() {
   });
 }
 
-document.querySelectorAll('.legend-item').forEach(item => {
-  item.addEventListener('click', () => {
-    const name = item.querySelector('.legend-name')?.textContent || 'Location';
-    const sessions = item.querySelector('.legend-note')?.textContent || '';
-    const wrap = document.getElementById('mapWrap');
-    const rect = wrap.getBoundingClientRect();
-    showTip({
-      clientX: rect.left + rect.width / 2,
-      clientY: rect.top + 60
-    }, name, sessions);
+function bindMapDetailButtons(selector) {
+  document.querySelectorAll(selector).forEach(item => {
+    item.addEventListener('click', () => {
+      const name = item.dataset.name || item.querySelector('.legend-name')?.textContent || item.querySelector('.map-link-title')?.textContent || 'Location';
+      const sessions = item.dataset.detail || item.querySelector('.legend-note')?.textContent || item.querySelector('.map-link-detail')?.textContent || '';
+      showTip(null, name, sessions);
+    });
   });
+}
+
+bindMapDetailButtons('.legend-item');
+bindMapDetailButtons('.map-link-btn');
+
+document.querySelectorAll('.legend-item').forEach(item => {
+  item.setAttribute('aria-label', (item.dataset.name || 'Location') + '. ' + (item.dataset.detail || ''));
+});
+
+document.querySelectorAll('.map-link-btn').forEach(item => {
+  item.setAttribute('aria-label', (item.dataset.name || 'Location') + '. ' + (item.dataset.detail || ''));
 });
 
 document.addEventListener('click', evt => {
